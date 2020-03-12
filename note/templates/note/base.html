@@ -1,0 +1,65 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <title>施工日报</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+<body>
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top"> 
+    <div class="container"> 
+        <div class="navbar-header">       
+            <button type="button" class="navbar-toggle collapsed" 
+                data-toggle="collapse" data-target="#navbar" 
+                aria-expanded="false" aria-controls="navbar"> 
+            </button>
+            <a class="navbar-brand" href="{% url 'note:daily' %}"> 
+                施工日报</a> 
+        </div>
+                   
+        <div id="navbar" class="navbar-collapse collapse">          
+             
+            <ul class="nav navbar-nav">
+            <li><a href=" {% url 'note:topics' %}"> 单位工程 </a></li>
+                <li><a href=" {% url 'note:entries' %}"> 施工记录 </a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                  <li>你好！{{ user.username }}</li>
+<li><a href="{% url 'users:logout' %}">注销</a></li>
+                {% else %}
+                  <li><a href="{% url 'users:register' %}">请注册</a></li>
+                  <li><a href="{% url 'users:login' %}">请登录</a></li>
+                {% endif %}
+            </ul>
+        </div> <!--/.nav-collapse -->     
+    
+    </div> 
+</nav>
+
+<div class="container">
+ <div class="page-header">
+    {% block header %}{% endblock header %} 
+ </div> 
+ <div>
+    {% block content %}{% endblock content %} 
+ </div> 
+ </div> <!-- /container -->
+   
+    <div>
+<p></p>
+<hr />
+        <p>&copy; 白家海子煤矿 2020年3月, <a href="mailto:3357025409@qq.com">Author:地层深处</a></p>
+    </div>   
+
+</body>
+</html>

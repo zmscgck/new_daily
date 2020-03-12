@@ -1,0 +1,45 @@
+{% extends "note/base.html" %}
+
+{% block content %}
+<h1>施工日报</h1><a href=" {% url 'note:new_entries' %}">增加单位工程日报</a>
+     <!--施工记录表单-->
+    <div class="row" >
+      <div class="col-md-8" style="width: 900px;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>时间</th>
+              <th>单位工程</th>
+              <th>施工单位</th>
+              <th>出勤</th>
+              <th>进尺</th>
+              <th>出矸</th>
+              <th>排水</th>
+              <th>水泥</th>             
+              <th>主要工作内容</th>             
+            </tr>
+          </thead>
+          <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td>{{ entry.id }}</td>
+          <td>{{entry.date_added|date:'Y-m-d'}}</td>
+          <td><a href="{% url 'note:edit_entry' entry.id %}">{{entry.topic}}</a></td>
+          <td>{{ entry.company }}</td>
+          <td>{{ entry.worker }}</td>
+          <td>{{ entry.footage }}</td>
+          <td>{{ entry.rock }}</td>
+          <td>{{ entry.water }}</td>
+          <td>{{ entry.cement }}</td>
+          <td>{{entry.text|linebreaks}}</td>
+          
+        </tr>   
+          </tbody>
+        {% empty %}              
+         请按时填写施工日报
+        {% endfor %}
+        </table> 
+      </div>   
+    </div>
+{% endblock content %}

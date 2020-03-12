@@ -1,0 +1,13 @@
+	{% extends "note/base.html" %}
+
+{% block content %}
+    <p>
+    {{ topic }}施工日报:
+    </p>
+
+	<form action="{% url 'note:new_entry' topic.id %}" method='post'>
+	  {%csrf_token%}
+	  {{form.as_p}}
+	  <button name="submit">提交日报</button>
+	</form>
+ {% endblock content %} 

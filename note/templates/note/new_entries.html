@@ -9,6 +9,10 @@
 	  {%csrf_token%}
 	  {{form.as_p}}
 	  <button name="submit">提交日报</button>
-<button name="submit"><a href=" {% url 'note:new_entries' %}">保存并增加下一个单位工程日报</a></button>
+	<!--
+	<button name="submit">
+		<a href=" {% url 'note:new_entries' %}">保存并增加下一个单位工程日报</a>
+	</button>
+	-->
 	</form>
  {% endblock content %} 

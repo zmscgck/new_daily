@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from note.models import Topic, Entry
-from django.http import HttpResponseRedirect
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from note.forms import TopicForm, EntryForm
 from django.contrib.auth.decorators import login_required
 import django.utils.timezone as timezone
+
 
 # Create your views here.
 def index(request):
@@ -16,8 +16,9 @@ def index(request):
 @login_required
 def new_daily(request):
     # 显示新填写的施工日报
-    entries = Entry.objects.filter(owner=request.user).filter(date_added=
-    timezone.localtime(timezone.now()).strftime("%F")).order_by('-date_added').order_by('-id')
+    entries = Entry.objects.filter(owner=request.user).filter(
+        date_added=timezone.now().strftime("%F")
+        ).order_by('-date_added').order_by('-id')
     context = {'entries': entries}
     return render(request, 'note/daily.html', context)
 
@@ -45,7 +46,8 @@ def topic(request, topic_id):
 @login_required
 def entries(request):
     # 显示管理工程的所有施工日报
-    entries = Entry.objects.filter(owner=request.user).order_by('-date_added').order_by('-id')
+    entries = Entry.objects.filter(owner=request.user).\
+        order_by('-date_added').order_by('-id')
     context = {'entries': entries}
     return render(request, 'note/entries.html', context)
 
@@ -68,6 +70,7 @@ def new_topic(request):
     context = {'form': form}
     return render(request, 'note/new_topic.html', context)
 
+
 @login_required
 def new_entry(request, topic_id):
     '''在指定单位工程中添加施工日报'''
@@ -87,10 +90,11 @@ def new_entry(request, topic_id):
     context = {'topic': topic, 'form': form}
     return render(request, 'note/new_entry.html', context)
 
+
 @login_required
 def edit_entry(request, entry_id):
     '''编辑施工日报'''
-    owner=request.user
+    owner = request.user
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     # 确认请求的单位工程属于当前用户管理
@@ -110,9 +114,10 @@ def edit_entry(request, entry_id):
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'note/edit_entry.html', context)
 
+
 @login_required
 def new_entries(request):
-    '''选择单位工程，添加施工日报'''    
+    '''选择单位工程，添加施工日报'''
     owner = request.user
     if request.method != 'POST':
         # 未提交数据，创建一个空表单
@@ -121,14 +126,15 @@ def new_entries(request):
         # post提交的数据，对数据进行处理
         form = EntryForm(data=request.POST)
         # 判断单位工程是否填写重复！
-        es = Entry.objects.filter(date_added=timezone.localtime(timezone.now()). strftime("%F"))
+        es = Entry.objects.filter(
+            date_added=timezone.now().strftime("%F"))
         if form.is_valid:
             new_entry = form.save(commit=False)
             topic = new_entry.topic
             for i in es:
                 if topic == i.topic:
                     form = EntryForm()  # 如工程重复，清空重新填写
-                    return HttpResponseRedirect(reverse('note:daily'))
+                    return HttpResponseRedirect(reverse('note:new_entries'))
             new_entry.owner = owner
             new_entry.save()
             form.save()

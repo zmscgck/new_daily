@@ -4,7 +4,7 @@ from django.contrib import admin
 from note.models import Topic, Entry
 
 class TopicAdmin(admin.ModelAdmin):
-    list_display = ['id', 'text', 'quantity', 'character', 'start_time', 'end_time', 'days', 'owner', 'company']
+    list_display = ['id', 'text', 'company', 'quantity', 'character', 'start_time', 'end_time', 'days', 'owner']
     search_fields = ['text']    # 搜索功能
     list_filter = ['company']    # 过滤器
     list_display_links = ['text']  # 显示链接

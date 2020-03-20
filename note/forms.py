@@ -16,7 +16,15 @@ class TopicForm(forms.ModelForm):
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ['date_added', 'topic', 'worker',
-                  'footage', 'rock', 'water', 'cement', 'text']
+        fields = ['date_added', 'topic', 'company', 'worker',
+                  'footage', 'cement', 'text']
+        labels = {'text': '工作内容'}
+        widgets = {'text': forms.Textarea(attrs={'cols': 40})}
+
+
+class EntryForm01(forms.ModelForm):
+    class Meta:
+        model = Entry
+        fields = ['company', 'worker', 'footage', 'cement', 'text']
         labels = {'text': '工作内容'}
         widgets = {'text': forms.Textarea(attrs={'cols': 40})}

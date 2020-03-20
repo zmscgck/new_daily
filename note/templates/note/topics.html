@@ -1,10 +1,12 @@
 {% extends "note/base.html" %}
-
+{% load bootstrap3 %}
+{% block header %}
+ <h3><a href="{% url 'note:new_topic' %}">增加单位工程</a></h3>
+{% endblock header %}
 {% block content %}
- &diams;&diams;<a href="{% url 'note:new_topic' %}">增加单位工程</a>&diams;&diams;
     <!--单位工程表单-->
     <div class="row" >
-      <div class="col-md-8" style="width: 900px;">
+      <div class="col-md-8" style="width: 1080px;">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -14,15 +16,14 @@
               <th>技术特征</th>
               <th>开工时间</th>
               <th>完工时间</th>
-              <th>工期（天）</th>             
-              <th></th>             
+              <th>工期（天）</th>          
             </tr>
           </thead>
           <tbody>
         {% for topic in topics %}
         <tr>
           <td>{{ topic.id }}</td>
-          <td><a href="{% url 'note:topic' topic.id %}">{{ topic.text }}</a></td>
+          <td>{{ topic.text }}</a></td>
           <td>{{ topic.quantity }}</td>
           <td>{{ topic.character }}</td>
           <td>{{topic.start_time|date:'Y-m-d'}}</td>
@@ -31,7 +32,7 @@
         </tr>   
           </tbody>
         {% empty %}              
-         请增加单位工程
+         <a href="{% url 'note:new_topic' %}">请增加单位工程</a>
         {% endfor %}
         </table>        
       </div>   

@@ -1,0 +1,17 @@
+
+{% extends "note/base.html" %}
+
+{% block content %}
+<p>
+ <a href=" {% url 'img_db:show' %}"> 查看施工图片 </a>
+</p>
+<p><h1>工程图片上传</h1></p>
+<form method="POST" enctype="multipart/form-data" 
+      action="{% url 'img_db:upload' %}" >
+{% csrf_token %}
+{{form.as_p}}
+
+<button type="submit">上传</button>
+</form>
+
+{% endblock content %}

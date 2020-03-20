@@ -15,8 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-#配置图片目录
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# 设置静态文件路径为主目录下的media文件夹
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # my apps
     'note',
     'users',
+    'img_db',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR, "static")
+]
 
 # my_set
 LOGIN_URL = '/users/login/'

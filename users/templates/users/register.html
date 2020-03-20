@@ -1,11 +1,22 @@
 {% extends "note/base.html" %} 
-{% block content %} 
-
-<form method="post" action="{% url 'users:register' %}"> 
-  {% csrf_token %} 
-  {{ form.as_p }} 
-  <button name="submit">用户注册</button> 
-  <input type="hidden" name="next" value="{% url 'note:index' %}" /> 
-</form>
  
+{% load bootstrap3 %}
+  {% block header %}
+ <h2>请登记注册</h2> 
+{% endblock header %}
+
+{% block content %}
+ 
+<form method="post" action="{% url 'users:register' %}" class="form"> 
+ {% csrf_token %}
+{% bootstrap_form form %} 
+
+{% buttons %} 
+ <button name="submit" class="btn btn-primary">用户注册</button> 
+ {% endbuttons %}
+
+<input type="hidden" name="next" value="{% url 'note:index' %}" />
+ 
+ </form> 
+
  {% endblock content %}

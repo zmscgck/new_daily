@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url, include
-from users import views
+from django.conf.urls import include,url
+from django.views.static import serve
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('note.urls')),
     path('users/', include('users.urls', namespace='users')),
+    path('img_db/', include('img_db.urls', namespace='img_db')),
+    url(r'^medias/(?P<path>.*)$', serve, {'document_root':
+        'C:/Users/LZM/Construction_Daily/static/'}),
+    #path('medias/<path>.*', serve, {'document_root':
 ]

@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 # from django.core.urlresolvers import reverse
 from django.urls import reverse
-from django.contrib.auth import logout
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
@@ -23,7 +22,7 @@ def register(request):
     else:
         # 处理填写好的表单
         form = UserCreationForm(data=request.POST)
-    
+
         if form.is_valid():
             new_user = form.save()
         # 让用户自动登录，再重定向到主页
@@ -32,3 +31,10 @@ def register(request):
             return HttpResponseRedirect(reverse('note:index'))
     context = {'form': form}
     return render(request, 'users/register.html', context)
+
+'''
+class userinfo:
+    zm = models.FileField(upload_to='zm/', default="/zm/default.png")
+zm=request.FILES.get("zm_img")
+UserInfo.objects.create_user(username=user,password=pwd,email=email,zm=zm)
+'''

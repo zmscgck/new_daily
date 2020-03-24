@@ -1,31 +1,32 @@
 {% extends "note/base.html" %}
 {% load static %}
-{% block header %}
-{% endblock header %} 
+{% load bootstrap3 %}
 <html>
+{% block header %}
+ <h3 align="center">请于08:00前<a href="{% url 'note:new_entries' %}">提交日报</a></h3>
+{% endblock header %}
+
 {% block content %}
 <body>
-<div align="center" class='jumbotron'><img src="static/1.jpg">
- <h3>白家海子煤矿</h3> <a href="{% url 'note:new_entries' %}"><h1>施工日报</a></h1> 
+<div align="center" class='jumbotron'>
+ <h3>白家海子煤矿</h3> <a href="{% url 'note:daily' %}"><h1>施工日报</h1> </a>
 </div> 
-<hr>
-<h3 align="center">请于每天8:00前，<a href="{% url 'note:new_entries' %}">填写施工日报</a></h3>
-<hr>
 <div align="left" style="line-height:30px">
-    &emsp;&emsp;日报按照单位工程进行填写，要求准确填写每天的出勤和工程进度。    
+    &emsp;&emsp;日报按单位工程进行填写，要求准确填写每天的出勤和工程进度。    
     对主要工作内容进行描述，对存在的问题和影响情况进行详细描述。
-    对当天的工程计划、工作安排、主要沟通和协调事项进行登记传达。
-    日报填写需要注册，注册后会对填报的内容和数据进行上传和保护。
-    你可以随时登录网站，对日报内容进行查看，了解工程施工进展情况。
-    <a href="{% url 'img_db:upload' %}">工程照片管理</a>
+    对当天的工程计划、工作安排、主要沟通和协调事项进行登记上报。
+    日报填写需要注册，日报管理需要向管理员申请权限。注册后会对填报的内容和数据进行上传和保护。
+    你可以随时登录网站，查看日报内容，了解工程施工进展情况。
+    <a href="{% url 'img_db:upload' %}">工程图片</a>
 </div>
 <hr>
-  
-  <img src="{% static "2.jpg" %}" alt="煤矿规划图" height=280 width=480 />   
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="img">
-    <button type="submit">上传</button>
+  <img src="{% static "2.jpg" %}" alt="煤矿规划图" height=210 width=340 />
+<!--
+<form action="{% url 'img_db:show' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %} 单独上传图片，action=网址无法正确选定？问题未解决！
+<input type="file" name="file">
+<input type="submit" value="上传" >
+-->
 </form>
 </body>
 </html>

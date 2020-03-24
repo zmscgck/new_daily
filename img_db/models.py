@@ -11,7 +11,6 @@ class IMG(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='上传人')
     date_added = models .DateField(default=timezone.now)
 
-
     class Meta:
         verbose_name = '工程图片'
         verbose_name_plural = '工程图片'

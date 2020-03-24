@@ -23,14 +23,14 @@
 data-target="#navbar" 
            aria-expanded="false" aria-controls="navbar"> 
            </button>
-            <a class="navbar-brand" href="{% url 'note:daily' %}"> 施工日报</a> 
+            <a class="navbar-brand" href="{% url 'note:new_entries' %}"> 填写日报</a> <a class="navbar-brand" href="{% url 'note:admin' %}"> 管理日报</a><a class="navbar-brand" href="{% url 'img_db:show' %}"> 工程图片</a>
          </div>
                    
         <div id="navbar" class="navbar-collapse collapse">  
           <ul class="nav navbar-nav">
             <li><a href=" {% url 'note:topics' %}"> 单位工程 </a></li>
              <li><a href=" {% url 'note:entries' %}"> 施工记录 </a></li>
-             <li><a href=" {% url 'img_db:upload' %}"> 施工图表 </a></li>
+             <li><a href=" {% url 'img_db:upload' %}"> 工程图片 </a></li>
             </ul>
             
             <ul class="nav navbar-nav navbar-right">

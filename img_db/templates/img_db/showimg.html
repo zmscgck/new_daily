@@ -1,10 +1,15 @@
-
 {% extends "note/base.html" %}
-
+{% load bootstrap3 %}
+{% block header %}
+<h3>工程图片展示</h3>
+{% endblock header %} 
 {% block content %}
 
 {% for img in imgs %}
-<img src="{{ img.img.url }}" />
+<img src="{{ img.img.url }}" height=210 width=340 />
+<h4>{{img.name}}</h4>
+{% empty %}
+<h3>您今天还没有上传图片</h4>
 {% endfor %}
 
 {% endblock content %}

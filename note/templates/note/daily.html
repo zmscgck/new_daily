@@ -9,7 +9,7 @@
 
      <!--施工记录表单-->
     <div class="row" >
-      <div class="col-md-10" style="width: 1080px;">
+      <div class="col-md-6" style="width: 780px;">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -33,7 +33,7 @@
           <td>{{ entry.worker }}</td>
           <td>{{ entry.footage }}</td>
           <td>{{ entry.cement }}</td>
-          <td>{{entry.text|linebreaks}}</td>
+          <td>{{entry.text|truncatechars:70}}</td>
           
         </tr>   
           </tbody>

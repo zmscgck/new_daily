@@ -48,7 +48,10 @@ class Entry(models.Model):
 
     def __str__(self):
         """返回日报前20字"""
+        self.text[:20]
+        '''
         if len(self.text) > 20:
-            return self.text[:20] + "..."
+            return  + "..."
         else:
             return self.text[:20]
+        '''

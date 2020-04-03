@@ -131,7 +131,7 @@ def new_entries(request):
         form = EntryForm(data=request.POST)
         # 判断单位工程是否填写重复！
         es = Entry.objects.filter(
-            date_added=timezone.now().strftime("%F"))
+            date_added=timezone.localtime().strftime("%F"))
         if form.is_valid:
             new_entry = form.save(commit=False)
             topic = new_entry.topic

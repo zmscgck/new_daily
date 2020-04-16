@@ -1,10 +1,25 @@
-
 {% extends "note/base.html" %}
-
+{% load bootstrap3 %}
+{% block header %}
+<h2><a href=" {% url 'img_db:upload' %}"> <h3>工程图片展示</h3></a>
+<style>
+    .boss{width:auto;margin:10px auto;overflow:hidden;}
+    .boss div{width:300;
+float:left;margin-left:10px;}
+    .boss div Img{display:block;border:solid 1px grey;width:300;}
+</style>
+{% endblock header %} 
 {% block content %}
-
+<div class=boss>
 {% for img in imgs %}
-<img src="{{ img.img.url }}" />
+<div>
+<a href="{{img.img.url}}"><img src="{{ img.img.url }}" height=180 width=300 />
+<h4>{{img.name}}</h4></a>
+</div>
+{% empty %}
+<a href="{% url 'img_db:upload' %}">
+<h3>您今天还没有上传图片</h4>
+</a>
 {% endfor %}
-
+</div>
 {% endblock content %}

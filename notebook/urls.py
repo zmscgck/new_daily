@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include,url
+from django.conf.urls import include, url
 from django.views.static import serve
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -26,5 +28,5 @@ urlpatterns = [
     path('img_db/', include('img_db.urls', namespace='img_db')),
     url(r'^medias/(?P<path>.*)$', serve, {'document_root':
         'C:/Users/LZM/Construction_Daily/static/'}),
-    #path('medias/<path>.*', serve, {'document_root':
-]
+    # path('medias/<path>.*', serve, {'document_root':
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

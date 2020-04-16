@@ -1,0 +1,18 @@
+
+{% extends "note/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+ <h2><a href=" {% url 'img_db:show' %}"> 工程图片展示 </a></h2> 
+{% endblock header %}
+
+{% block content %}
+<p><h3>图片上传</h3></p>
+<form action="{% url 'img_db:upload' %}" method="POST" enctype="multipart/form-data">
+ <table>
+ {{form.as_p}}
+</table>
+ {% csrf_token %}
+ <input type="submit" value="上传" >
+</form>
+
+{% endblock content %}

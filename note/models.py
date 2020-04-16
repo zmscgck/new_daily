@@ -37,10 +37,10 @@ class Entry(models.Model):
     date_added = models.DateField(default=timezone.now, verbose_name='施工日期')
     '''增加日报细分内容'''
     worker = models.IntegerField(verbose_name='出勤人数')
-    footage = models.FloatField(default=0, verbose_name='工程进度')
+    footage = models.FloatField(default=0, verbose_name='进尺')
     rock = models.FloatField(default=0, verbose_name='出矸量')
     water = models.FloatField(default=0, verbose_name='排水量')
-    cement = models.FloatField(default=0, verbose_name='水泥/砼量')
+    cement = models.FloatField(default=0, verbose_name='喷砼')
 
     class Meta:
         verbose_name = '施工日报'

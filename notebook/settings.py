@@ -26,10 +26,10 @@ MEDIA_URL = '/media/'
 SECRET_KEY = '_1)pyzm^ov_+*q-b^iw^hpvz=#%93u)@1x4*!@r_g9ow%k6rd3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-
+FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Application definition
 
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'notebook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'notebook/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,8 +84,16 @@ WSGI_APPLICATION = 'notebook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+        'NAME':'note',
+        'USER':'root',
+        'PASSWORD':'root',
+
+
     }
 }
 
@@ -127,10 +135,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, "static")
-]
-
+#STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # my_set
 LOGIN_URL = '/users/login/'
 

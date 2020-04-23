@@ -12,6 +12,7 @@
             <tr>
               <th>序号</th>
               <th>工程名称</th>
+              <th>施工单位</th>
               <th>工程量</th>
               <th>技术特征</th>
               <th>开工时间</th>
@@ -24,6 +25,7 @@
         <tr>
           <td>{{ topic.id }}</td>
           <td>{{ topic.text }}</a></td>
+          <td>{{ topic.company }}</a></td>
           <td>{{ topic.quantity }}</td>
           <td>{{ topic.character }}</td>
           <td>{{topic.start_time|date:'Y-m-d'}}</td>

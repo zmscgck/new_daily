@@ -32,7 +32,7 @@ class Entry(models.Model):
     '''施工日报'''
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, verbose_name='工程名称')
     company = models.ForeignKey(Group, on_delete=models.CASCADE, verbose_name='施工单位')
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='记录人')
+    recorder = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='记录人')
     text = models.TextField(verbose_name='施工日报')
     date_added = models.DateField(default=timezone.now, verbose_name='施工日期')
     '''增加日报细分内容'''

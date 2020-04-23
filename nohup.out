@@ -1,2 +1,189 @@
 http://spe7fh.natappfree.cc/
-tcp://server.natappfree.cc:37934 -> 127.0.0.1:8022 
+tcp://server.natappfree.cc:37934 -> 127.0.0.1:8022 [04/16/20 21:21:28] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:21:28] [DEBG] [ctl:69344281] New connection to: 112.74.89.58:443
+[04/16/20 21:21:28] [DEBG] [ctl:69344281] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"4139b33fed3e289d","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"4139b33fed3e289d","ClientToken":""}}
+[04/16/20 21:21:28] [DEBG] [ctl:69344281] Waiting to read message
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Reading message with length: 120
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"21ea18e6f911562f5a341cf0328e3f1f","Error":""}}
+[04/16/20 21:21:29] [INFO] [client] Authenticated with server, client id: 21ea18e6f911562f5a341cf0328e3f1f
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Waiting to read message
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Reading message with length: 32
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Waiting to read message
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Reading message with length: 171
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Read message {"Type":"NewTunnel","Payload":{"ReqId":"3cc50e194a3bfb38","Url":"tcp://server.natappfree.cc:44884","Protocol":"tcp","LocalAddr":"127.0.0.1:8022","Error":"","IsTls":false}}
+[04/16/20 21:21:29] [INFO] [client] Tunnel established at tcp://server.natappfree.cc:44884
+[04/16/20 21:21:29] [DEBG] [ctl:69344281] Waiting to read message
+[04/16/20 21:21:29] [DEBG] [pxy:50991927] New connection to: 112.74.89.58:443
+[04/16/20 21:21:29] [DEBG] [pxy:50991927] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"21ea18e6f911562f5a341cf0328e3f1f"}}
+[04/16/20 21:21:29] [DEBG] [pxy:50991927] Waiting to read message
+
+[04/16/20 21:23:12] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:23:17] [EROR] control recovering from failure dial tcp: i/o timeout
+[04/16/20 21:23:17] [INFO] Waiting 1 seconds before reconnecting
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] New connection to: 112.74.89.58:443
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"4139b33fed3e289d","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"4139b33fed3e289d","ClientToken":""}}
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Waiting to read message
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Reading message with length: 120
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"2553a8b68c9e742a20441d1d13423060","Error":""}}
+[04/16/20 21:23:19] [INFO] [client] Authenticated with server, client id: 2553a8b68c9e742a20441d1d13423060
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Waiting to read message
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Reading message with length: 32
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Waiting to read message
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Reading message with length: 171
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Read message {"Type":"NewTunnel","Payload":{"ReqId":"4ab87b74d37b5ad1","Url":"tcp://server.natappfree.cc:45754","Protocol":"tcp","LocalAddr":"127.0.0.1:8022","Error":"","IsTls":false}}
+[04/16/20 21:23:19] [INFO] [client] Tunnel established at tcp://server.natappfree.cc:45754
+[04/16/20 21:23:19] [DEBG] [ctl:2f689216] Waiting to read message
+[04/16/20 21:23:19] [DEBG] [pxy:3c9712de] New connection to: 112.74.89.58:443
+[04/16/20 21:23:19] [DEBG] [pxy:3c9712de] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"2553a8b68c9e742a20441d1d13423060"}}
+[04/16/20 21:23:19] [DEBG] [pxy:3c9712de] Waiting to read message
+[04/16/20 21:23:39] [DEBG] [ctl:2f689216] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:23:39] [DEBG] [ctl:2f689216] Reading message with length: 28
+[04/16/20 21:23:39] [DEBG] [ctl:2f689216] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:23:39] [DEBG] [ctl:2f689216] Waiting to read message
+[04/16/20 21:23:56] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] New connection to: 112.74.89.58:443
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Waiting to read message
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Reading message with length: 120
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"30757b8c241030d0688f5bc15e8b32f3","Error":""}}
+[04/16/20 21:23:56] [INFO] [client] Authenticated with server, client id: 30757b8c241030d0688f5bc15e8b32f3
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Waiting to read message
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Reading message with length: 32
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Waiting to read message
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Reading message with length: 165
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Read message {"Type":"NewTunnel","Payload":{"ReqId":"34c218ff09ee44a4","Url":"http://pqzf5k.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:23:56] [INFO] [client] Tunnel established at http://pqzf5k.natappfree.cc
+[04/16/20 21:23:56] [DEBG] [ctl:4bd5e3a5] Waiting to read message
+[04/16/20 21:23:56] [DEBG] [pxy:676e6ed0] New connection to: 112.74.89.58:443
+[04/16/20 21:23:56] [DEBG] [pxy:676e6ed0] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"30757b8c241030d0688f5bc15e8b32f3"}}
+[04/16/20 21:23:56] [DEBG] [pxy:676e6ed0] Waiting to read message
+[04/16/20 21:30:29] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] New connection to: 112.74.89.58:443
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Waiting to read message
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Reading message with length: 120
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"9699f7573be99d53c89e01778ab685c8","Error":""}}
+[04/16/20 21:30:30] [INFO] [client] Authenticated with server, client id: 9699f7573be99d53c89e01778ab685c8
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Waiting to read message
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Reading message with length: 32
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Waiting to read message
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Reading message with length: 165
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Read message {"Type":"NewTunnel","Payload":{"ReqId":"bb9c50e1d0c77bac","Url":"http://nsr82q.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:30:30] [INFO] [client] Tunnel established at http://nsr82q.natappfree.cc
+[04/16/20 21:30:30] [DEBG] [ctl:530f4cc2] Waiting to read message
+[04/16/20 21:30:30] [DEBG] [pxy:112d0be6] New connection to: 112.74.89.58:443
+[04/16/20 21:30:30] [DEBG] [pxy:112d0be6] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"9699f7573be99d53c89e01778ab685c8"}}
+[04/16/20 21:30:30] [DEBG] [pxy:112d0be6] Waiting to read message
+[04/16/20 21:31:02] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] New connection to: 112.74.89.58:443
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Reading message with length: 120
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"ebca9b64fd97fa99d81d8d3b1294bd15","Error":""}}
+[04/16/20 21:31:02] [INFO] [client] Authenticated with server, client id: ebca9b64fd97fa99d81d8d3b1294bd15
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Reading message with length: 32
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Reading message with length: 165
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Read message {"Type":"NewTunnel","Payload":{"ReqId":"7f966755c32666b8","Url":"http://42g8qd.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:31:02] [INFO] [client] Tunnel established at http://42g8qd.natappfree.cc
+[04/16/20 21:31:02] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:31:02] [DEBG] [pxy:4140c4f] New connection to: 112.74.89.58:443
+[04/16/20 21:31:02] [DEBG] [pxy:4140c4f] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"ebca9b64fd97fa99d81d8d3b1294bd15"}}
+[04/16/20 21:31:02] [DEBG] [pxy:4140c4f] Waiting to read message
+[04/16/20 21:31:22] [DEBG] [ctl:32987e2f] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:31:22] [DEBG] [ctl:32987e2f] Reading message with length: 28
+[04/16/20 21:31:22] [DEBG] [ctl:32987e2f] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:31:22] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:31:42] [DEBG] [ctl:32987e2f] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:31:42] [DEBG] [ctl:32987e2f] Reading message with length: 28
+[04/16/20 21:31:42] [DEBG] [ctl:32987e2f] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:31:42] [DEBG] [ctl:32987e2f] Waiting to read message
+[04/16/20 21:35:47] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] New connection to: 112.74.89.58:443
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Waiting to read message
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Reading message with length: 120
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"f55cb29868966d2fba502af0f22ca293","Error":""}}
+[04/16/20 21:35:47] [INFO] [client] Authenticated with server, client id: f55cb29868966d2fba502af0f22ca293
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Waiting to read message
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Reading message with length: 32
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Waiting to read message
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Reading message with length: 165
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Read message {"Type":"NewTunnel","Payload":{"ReqId":"0a279e4150e779eb","Url":"http://dyrdwu.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:35:47] [INFO] [client] Tunnel established at http://dyrdwu.natappfree.cc
+[04/16/20 21:35:47] [DEBG] [ctl:4b8b76aa] Waiting to read message
+[04/16/20 21:35:47] [DEBG] [pxy:37a8424c] New connection to: 112.74.89.58:443
+[04/16/20 21:35:47] [DEBG] [pxy:37a8424c] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"f55cb29868966d2fba502af0f22ca293"}}
+[04/16/20 21:35:47] [DEBG] [pxy:37a8424c] Waiting to read message
+[04/16/20 21:38:44] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] New connection to: 112.74.89.58:443
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Reading message with length: 120
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"35127acdb1ba82c40f3084036ae8e417","Error":""}}
+[04/16/20 21:38:44] [INFO] [client] Authenticated with server, client id: 35127acdb1ba82c40f3084036ae8e417
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Reading message with length: 32
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Reading message with length: 165
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Read message {"Type":"NewTunnel","Payload":{"ReqId":"31f2d363d17a4025","Url":"http://t7qube.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:38:44] [INFO] [client] Tunnel established at http://t7qube.natappfree.cc
+[04/16/20 21:38:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:38:45] [DEBG] [pxy:3bbe1e47] New connection to: 112.74.89.58:443
+[04/16/20 21:38:45] [DEBG] [pxy:3bbe1e47] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"35127acdb1ba82c40f3084036ae8e417"}}
+[04/16/20 21:38:45] [DEBG] [pxy:3bbe1e47] Waiting to read message
+[04/16/20 21:39:04] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:39:04] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:39:04] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:39:04] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:39:24] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:39:25] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:39:25] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:39:25] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:39:44] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:39:44] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:39:44] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:39:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:40:04] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:40:04] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:40:04] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:40:04] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:40:24] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:40:24] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:40:24] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:40:24] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:40:44] [DEBG] [ctl:b1c33e6] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:40:44] [DEBG] [ctl:b1c33e6] Reading message with length: 28
+[04/16/20 21:40:44] [DEBG] [ctl:b1c33e6] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:40:44] [DEBG] [ctl:b1c33e6] Waiting to read message
+[04/16/20 21:42:51] [INFO] [client] Trusting root CAs: [assets/client/tls/ngrokroot.crt]
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] New connection to: 112.74.89.58:443
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Writing message: {"Type":"Auth","Payload":{"Version":"4","MmVersion":"2.1","User":"653d7516cb4ce509","Password":"","OS":"linux","Arch":"amd64","ClientId":"","UserId":199090,"AuthToken":"653d7516cb4ce509","ClientToken":""}}
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Waiting to read message
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Reading message with length: 120
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Read message {"Type":"AuthResp","Payload":{"Version":"4","MmVersion":"2.1","ClientId":"549adc9ba247d864bb93f7ef5e11e07e","Error":""}}
+[04/16/20 21:42:51] [INFO] [client] Authenticated with server, client id: 549adc9ba247d864bb93f7ef5e11e07e
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Waiting to read message
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Reading message with length: 32
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Read message {"Type":"ReqProxy","Payload":{}}
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Waiting to read message
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Reading message with length: 165
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Read message {"Type":"NewTunnel","Payload":{"ReqId":"90b2706fa59c0033","Url":"http://c2kfbf.natappfree.cc","Protocol":"http","LocalAddr":"127.0.0.1:80","Error":"","IsTls":false}}
+[04/16/20 21:42:51] [INFO] [client] Tunnel established at http://c2kfbf.natappfree.cc
+[04/16/20 21:42:51] [DEBG] [ctl:6330d3d0] Waiting to read message
+[04/16/20 21:42:51] [DEBG] [pxy:d035ae0] New connection to: 112.74.89.58:443
+[04/16/20 21:42:51] [DEBG] [pxy:d035ae0] Writing message: {"Type":"RegProxy","Payload":{"ClientId":"549adc9ba247d864bb93f7ef5e11e07e"}}
+[04/16/20 21:42:51] [DEBG] [pxy:d035ae0] Waiting to read message
+[04/16/20 21:43:11] [DEBG] [ctl:6330d3d0] Writing message: {"Type":"Ping","Payload":{}}
+[04/16/20 21:43:11] [DEBG] [ctl:6330d3d0] Reading message with length: 28
+[04/16/20 21:43:11] [DEBG] [ctl:6330d3d0] Read message {"Type":"Pong","Payload":{}}
+[04/16/20 21:43:11] [DEBG] [ctl:6330d3d0] Waiting to read message
+

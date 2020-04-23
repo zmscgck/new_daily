@@ -22,7 +22,7 @@ class TopicAdmin(admin.ModelAdmin):
 
 class EntryAdmin(admin.ModelAdmin):
     list_display = ['date_added', 'topic', 'company', 'worker',
-                    'footage', 'cement', 'text', 'owner']
+                    'footage', 'cement', 'text', 'recorder']
     list_display_links = ['topic', 'company']  # 显示链接
     search_fields = ['text']       # 搜索功能
     list_filter = ['date_added', 'company', 'topic']  # 过滤器

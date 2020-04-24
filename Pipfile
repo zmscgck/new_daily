@@ -5,7 +5,10 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+<<<<<<< HEAD
 flake8 = "*"
+=======
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7
 
 [packages]
 

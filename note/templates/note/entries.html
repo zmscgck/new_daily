@@ -1,12 +1,12 @@
 {% extends "note/base.html" %}
 {% load bootstrap3 %}
 {% block header %}
-<h2>施工记录</h2>
+<h2>施工记录|最新30条</h2>
 {% endblock header %} 
 {% block content %}
      <!--施工记录表单-->
     <div class="row" >
-      <div class="col-md-8" style="width: 1080px;">
+      <div class="col-md-9" style="width: 1080px;">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -31,8 +31,8 @@
           <td>{{ entry.worker }}</td>
           <td>{{ entry.footage }}</td>
           <td>{{ entry.cement }}</td>
-          <td>{{entry.text|linebreaks}}</td>
-          <td>{{ entry.recorder }}</td>
+          <td>{{entry.text|truncatechars:100}}</td>
+          <td>{{ entry.owner }}</td>
         </tr>   
           </tbody>
         {% empty %}              

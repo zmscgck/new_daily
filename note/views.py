@@ -20,6 +20,7 @@ def new_daily(request):
     user = request.user # 登陆账号人名字
         # group = user_group.objects(id=user_id)
     date_added = timezone.now()
+<<<<<<< HEAD
     us = User.objects.get(username=user)
     user_id = us.id  # 登陆人的用户id
     gs = Group.objects.filter(user=user_id) # 登陆人所属群组
@@ -47,6 +48,15 @@ def new_daily(request):
     return render(request, 'note/daily.html', context)
 
 
+=======
+    entries = Entry.objects.filter(
+        date_added=timezone.localtime().strftime("%F")
+        ).order_by('-date_added').order_by('-id')
+    context = {'entries': entries, 'date_added': date_added}
+    return render(request, 'note/daily.html', context)
+
+
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7
 @login_required
 def topics(request):
     # 显示管理单位的所有工程，如未设定归属单位，显示新建单位工程
@@ -67,6 +77,7 @@ def topics(request):
 
 @login_required
 def entries(request):
+<<<<<<< HEAD
     # 显示全矿（所管理单位的）施工日报记录15条
     user = request.user  # 登陆人的名字
     us = User.objects.get(username=user)
@@ -81,6 +92,11 @@ def entries(request):
     else:
         entries = Entry.objects.filter(recorder=user).order_by('-date_added').order_by('-id')[0:5]    
         context = {'entries': entries}
+=======
+    # 显示全矿施工日报记录30条
+    entries = Entry.objects.order_by('-date_added').order_by('-id')[0:30]
+    context = {'entries': entries}
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7
     return render(request, 'note/entries.html', context)
 
 
@@ -92,7 +108,11 @@ def new_topic(request):
     if request.method != 'POST':
         # 未提交数据：创建一个新表单
         form = TopicForm()
+<<<<<<< HEAD
         #print("单位工程不能重复!")
+=======
+        print("单位工程不能重复!")
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7
     else:
         # POST提交的数据，对数据进行处理
         form = TopicForm(request.POST)
@@ -145,7 +165,7 @@ def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     # 确认请求的日报当前用户记录
-    if entry.recorder != request.user:
+    if entry.owner != request.user:
         raise Http404
     if request.method != 'POST':
         # 初次请求，使用当前日报填充表单
@@ -168,7 +188,7 @@ def edit_entry(request, entry_id):
 def new_entries(request):
     '''选择单位工程，添加施工日报'''
     date_added = timezone.now()
-    recorder = request.user
+    owner = request.user
     if request.method != 'POST':
         # 未提交数据，创建一个空表单
         form = EntryForm()
@@ -177,7 +197,7 @@ def new_entries(request):
         form = EntryForm(data=request.POST)
         # 判断单位工程是否填写重复！
         es = Entry.objects.filter(
-            date_added=timezone.now().strftime("%F"))
+            date_added=timezone.localtime().strftime("%F"))
         if form.is_valid:
             new_entry = form.save(commit=False)
             topic = new_entry.topic
@@ -185,7 +205,11 @@ def new_entries(request):
                 if topic == i.topic:
                     # 如工程重复，清空重新填写
                     return HttpResponseRedirect(reverse('note:new_entries'))
+<<<<<<< HEAD
             new_entry.recorder = recorder
+=======
+            new_entry.owner = owner
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7
             new_entry.date_added = date_added
             new_entry.save()
             form.save()

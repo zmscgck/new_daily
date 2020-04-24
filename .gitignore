@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 __pycache__/
 *.log
 local_settings.py
@@ -6,3 +7,20 @@ db.sqlite3-journal
 config.ini
 natapp
 *sqlite3*
+=======
+<<<<<<< HEAD
+__pycache__
+=======
+__pycache__/
+>>>>>>> c9668012fe6a2b5a0d4e96b67483601f7cd24e1b
+.jpg
+.jpeg
+media/
+static/
+.sqlite3
+.sqlite3*
+<<<<<<< HEAD
+
+=======
+>>>>>>> c9668012fe6a2b5a0d4e96b67483601f7cd24e1b
+>>>>>>> a206c26af81a9e37097e036c547e98ec43c35ad7

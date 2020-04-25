@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/lzhm/.local/share/virtualenvs/Construction_Daily-FvOy1F9Y/bin/python",
+    "python.pythonPath": "/usr/bin/python3.5",
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": true,

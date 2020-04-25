@@ -14,24 +14,24 @@ def index(request):
     return render(request, 'note/index.html')
 
 
-@login_required
+@login_required  # 未注册登陆，不允许查看日报
 def new_daily(request):
     # 显示（所属单位）或登陆人新填写的施工日报
-    user = request.user # 登陆账号人名字      
-    date_added = timezone.now()
+    user = request.user # 登陆账号人名字
+    date_added = timezone.now()  # 查看日报的当前日期
 
     us = User.objects.get(username=user)
     user_id = us.id  # 登陆人的用户id
-    gs = Group.objects.filter(user=user_id) # 登陆人所属群组
-    if gs:
+    gs = Group.objects.filter(user=user_id) # 登陆人所属群组（区队、部门）
+    if gs:                                  # 如果有归属群组
         entries = []
-        for group in gs:
+        for group in gs:  # 从数据库查找出当天、所属群组的日报，并排序
             entries += Entry.objects.filter(
         date_added=timezone.localtime().strftime("%F")
-        ).filter(company=group).order_by('-date_added').order_by('-id')    
+        ).filter(company=group).order_by('-date_added').order_by('-id')
         entries = entries
         context = {'entries': entries, 'date_added': date_added}
-    else:
+    else:  # 如果没有归属群组（如新注册，未分组），查找出登陆人当天的记录
         entries = Entry.objects.filter(
         date_added=timezone.localtime().strftime("%F")
         ).filter(recorder=user).order_by('-date_added').order_by('-id')
@@ -43,6 +43,8 @@ def new_daily(request):
 def topics(request):
     # 显示管理单位的所有工程，如未设定归属单位，显示新建单位工程
     user = request.user  # 登陆人的名字
+    date_added = timezone.now()  # 查看工程的当前日期
+
     us = User.objects.get(username=user)
     user_id = us.id  # 登陆人的用户id
     gs = Group.objects.filter(user=user_id) # 登陆人所属群组
@@ -52,7 +54,9 @@ def topics(request):
             topics += Topic.objects.filter(company=group).order_by('-date_added').order_by('-id')
         context = {'topics': topics}
     else:
-        topics = Topic.objects.filter(owner=user).order_by('-date_added').order_by('-id')
+        topics = Topic.objects.filter(
+        date_added=timezone.localtime().strftime("%F")
+        ).order_by('-date_added').order_by('-id')
         context = {'topics': topics}
     return render(request, 'note/topics.html', context)
 
@@ -67,12 +71,12 @@ def entries(request):
     if gs :
         entries = []
         for group in gs:
-            entries += Entry.objects.filter(company=group).order_by('-date_added').order_by('-id')[0:5]    
+            entries += Entry.objects.filter(company=group).order_by('-date_added').order_by('-id')[0:5]
         entries = entries[0:15]
         context = {'entries': entries}
     else:
-        entries = Entry.objects.filter(recorder=user).order_by('-date_added').order_by('-id')[0:5]    
-        context = {'entries': entries}    
+        entries = Entry.objects.filter(recorder=user).order_by('-date_added').order_by('-id')[0:5]
+        context = {'entries': entries}
     return render(request, 'note/entries.html', context)
 
 
@@ -95,7 +99,6 @@ def new_topic(request):
                 if text == i.text:
                     # 如工程重复，清空重新填写
                     return HttpResponseRedirect(reverse('note:new_topic'))
-            new_topic.owner = user
             new_topic.save()
             return HttpResponseRedirect(reverse('note:topics'))
     context = {'form': form}
@@ -160,7 +163,7 @@ def edit_entry(request, entry_id):
 def new_entries(request):
     '''选择单位工程，添加施工日报'''
     date_added = timezone.now()
-    owner = request.user
+    recorder = request.user
     if request.method != 'POST':
         # 未提交数据，创建一个空表单
         form = EntryForm()
@@ -178,7 +181,6 @@ def new_entries(request):
                     # 如工程重复，清空重新填写
                     return HttpResponseRedirect(reverse('note:new_entries'))
             new_entry.recorder = recorder
-            new_entry.owner = owner
             new_entry.date_added = date_added
             new_entry.save()
             form.save()
